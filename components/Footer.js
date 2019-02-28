@@ -40,6 +40,14 @@ export const Footer = () => (
               React lean analytics
             </a>
           </li>
+          <li>
+            <a
+              className="text-muted"
+              href="https://github.com/Hermanya/leananalytics.io"
+            >
+              This website
+            </a>
+          </li>
         </ul>
       </div>
       <div className="col-6 col-md">

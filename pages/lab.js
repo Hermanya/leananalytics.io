@@ -21,6 +21,7 @@ const useApi = (method, api, path) => {
   const [data, updateData] = useState([false, undefined]);
 
   const makeTheCall = () => {
+    window.API = API;
     return API.get("leanAnalyticsApi", "/experiments")
       .then(json => {
         if (json.error) return Promise.reject(json);
