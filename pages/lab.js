@@ -111,9 +111,12 @@ export const Lab = ({ history }) => {
                   style={{ width: 300 }}
                   onDelete={() => {
                     updateData([true, undefined, experiments, updateData]);
-                    API.del("leanAnalyticsApi", "/experiments/"+experiment.id);
+                    API.del(
+                      "leanAnalyticsApi",
+                      "/experiments/" + experiment.id
+                    );
                   }}
-                  onUpdate={(exp) => {
+                  onUpdate={exp => {
                     updateData([true, undefined, experiments, updateData]);
                     API.put("leanAnalyticsApi", "/experiments", { body: exp });
                   }}
