@@ -34,13 +34,12 @@ class App extends Component {
     props.setAuthData(props.authData);
   }
   render() {
-    console.log(this.props);
     // const { authData } = this.props;
     return (
       <Router>
         <div className="h-100vh mw-100 bg-light">
           <div className="container py-5">
-            <Switch>
+            <Switch>              
               <Route path="/landing" exact component={Landing} />
               <Route path="/lab" exact component={ProtectedLab} />
               {/* <Route path="/new-project" exact component={NewProject} /> */}

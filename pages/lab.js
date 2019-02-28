@@ -25,7 +25,7 @@ const useApi = (method, api, path) => {
     return API.get("leanAnalyticsApi", "/experiments")
       .then(json => {
         if (json.error) return Promise.reject(json);
-        updateData([false, undefined, json]);
+        updateData([false, undefined, json, updateData]);
       })
       .catch(e => {
         updateData([false, e, undefined]);
@@ -36,7 +36,7 @@ const useApi = (method, api, path) => {
   };
   useEffect(
     () => {
-      updateData([true, undefined, data[2]]);
+      updateData([true, undefined, data[2], updateData]);
 
       makeTheCall();
       return () => {
@@ -49,7 +49,7 @@ const useApi = (method, api, path) => {
   return data;
 };
 export const Lab = ({ history }) => {
-  const [loading, error, experiments] = useApi();
+  const [loading, error, experiments, updateData] = useApi();
 
   const title = (
     <h1 className="h4 font-weight-normal text-muted mx-1">A/B Test Results</h1>
@@ -110,6 +110,17 @@ export const Lab = ({ history }) => {
                   experiment={experiment}
                   className={`shadow m-3 animated bounceInUp delay-${index}`}
                   style={{ width: 300 }}
+                  onDelete={() => {
+                    updateData([true, undefined, experiments, updateData]);
+                    API.del(
+                      "leanAnalyticsApi",
+                      "/experiments/" + experiment.id
+                    );
+                  }}
+                  onUpdate={exp => {
+                    updateData([true, undefined, experiments, updateData]);
+                    API.put("leanAnalyticsApi", "/experiments", { body: exp });
+                  }}
                 />
               ))}
             </div>
