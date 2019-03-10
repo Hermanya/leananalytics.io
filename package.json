@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/cli": "0.1.36",
     "@aws-amplify/auth": "^1.2.12",
     "@mdx-js/mdx": "^0.16.6",
     "@zeit/next-css": "^1.0.1",
