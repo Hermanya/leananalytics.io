@@ -73,7 +73,7 @@ export const Lab = ({ history }) => {
     </button>
   );
 
-  const NewExperiment = (props) => (
+  const NewExperiment = props => (
     <Link href="/new-experiment">
       <button className={`btn btn-primary text-uppercase ${props.className}`}>
         <span className="">{props.text}</span>
@@ -105,22 +105,29 @@ export const Lab = ({ history }) => {
           <div className="text-center">
             <h2 className="h4 font-weight-normal text-muted mx-1 animated fadeIn mt-4">
               There is no experiments here.
-            </h2>            
+            </h2>
             <EmptyStateImage
               alt="empty state"
               className="d-block w-50 h-auto mx-auto mt-4 animated fadeIn slow"
             />
-            <Experiment
-              trackedAction="Create new experiment"
-              id="update this"
-            >
+            <Experiment trackedAction="Create new experiment" id="update this">
               <Variant description={`Go to create one !`}>
-                {callback => <NewExperiment text="Go to create one !" className="mt-4 animated tada slow" />}
+                {callback => (
+                  <NewExperiment
+                    text="Go to create one !"
+                    className="mt-4 animated tada slow"
+                  />
+                )}
               </Variant>
               <Variant description={`Create new one`}>
-                {callback => <NewExperiment text="Create new one" className="mt-4 animated tada slow" />}
+                {callback => (
+                  <NewExperiment
+                    text="Create new one"
+                    className="mt-4 animated tada slow"
+                  />
+                )}
               </Variant>
-            </Experiment>            
+            </Experiment>
           </div>
         ) : (
           <div>
