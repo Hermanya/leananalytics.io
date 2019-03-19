@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/cli": "0.1.36",
     "@aws-amplify/auth": "^1.2.12",
     "@mdx-js/mdx": "^0.16.6",
     "@zeit/next-css": "^1.0.1",
@@ -45,7 +44,8 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "deploy": "amplify publish"
   },
   "eslintConfig": {
     "extends": "react-app"
